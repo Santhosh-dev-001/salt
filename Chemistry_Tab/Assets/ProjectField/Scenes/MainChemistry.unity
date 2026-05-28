@@ -373,6 +373,65 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 22.37833, y: 22.474981, z: 42.57859}
   m_Center: {x: -2.7739228e-14, y: -0.000030517578, z: -0.000014305115}
+--- !u!114 &340720374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340720366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd90d1879eeef4145b987342ba2b31a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saltType: 1
+  riseHeight: 0.18
+  riseDuration: 0.35
+  riseCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  bottleRenderer: {fileID: 0}
+  selectedEmission: {r: 0, g: 1, b: 1, a: 1}
+  OnBottleSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1026491693}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  OnBottleDeselected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,9 +704,17 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.86754966
       objectReference: {fileID: 0}
+    - target: {fileID: -5457740104806953169, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
       propertyPath: m_Name
       value: saltanalysisTable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437130917817090020, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6984244534129230844, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
       propertyPath: m_DirtyAABB
@@ -677,6 +744,14 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.86754966
       objectReference: {fileID: 0}
+    - target: {fileID: 7209735288809061944, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541783576216209347, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9416
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -690,6 +765,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2437130917817090020, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 340720370}
+    - targetCorrespondingSourceObject: {fileID: 2437130917817090020, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 340720374}
     - targetCorrespondingSourceObject: {fileID: -5282662937176951862, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1074289206}
@@ -699,7 +777,25 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -5098102661364659656, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1893962154}
+    - targetCorrespondingSourceObject: {fileID: -5098102661364659656, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1893962158}
   m_SourcePrefab: {fileID: 100100000, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
+--- !u!1 &1026491693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7209735288809061944, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
+  m_PrefabInstance: {fileID: 1026491691}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1026491696 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7345640456771240170, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
+  m_PrefabInstance: {fileID: 1026491691}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1026491698 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8541783576216209347, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
+  m_PrefabInstance: {fileID: 1026491691}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1056113410 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2165966698183208151, guid: 4dfea0a071ba6ff4e863efc88ade212f, type: 3}
@@ -778,6 +874,92 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 22.37833, y: 22.474981, z: 42.57859}
   m_Center: {x: -2.7739228e-14, y: 6.219382e-14, z: 0.0000009536744}
+--- !u!1 &1165327265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165327267}
+  - component: {fileID: 1165327266}
+  m_Layer: 0
+  m_Name: SaltManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1165327266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165327265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3627dd37abef1c44b96bf5d928aa089a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  labCamera: {fileID: 330585545}
+  saltLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  equipmentLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  selectedSalt: 0
+  currentTest: 0
+  saltSelected: 0
+  allSaltData:
+  - {fileID: 11400000, guid: e9a783c27bee28f44bc8a89ddd32612f, type: 2}
+  - {fileID: 11400000, guid: 38cfc675e14cbb848802d473a404234c, type: 2}
+  - {fileID: 11400000, guid: cc0c834deee6fd648a6e48339a16d895, type: 2}
+  - {fileID: 11400000, guid: 53d7ba1bfb1a2254583e5d2217b76c63, type: 2}
+  - {fileID: 11400000, guid: bea8012e8891d0d4eb32371b7654b8be, type: 2}
+  watchGlass: {fileID: 1893962158}
+  observationText: {fileID: 0}
+  saltNameText: {fileID: 0}
+  testNameText: {fileID: 0}
+  inferenceText: {fileID: 0}
+  OnSaltSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1026491693}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  OnTestCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSelectionCleared:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1165327267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165327265}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8914067, y: 0.85049844, z: 0.6365824}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1293777885 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 981481203855ad047af5417a6de8e9c8, type: 3}
@@ -1014,6 +1196,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.339857, y: 5.339858, z: 0.9836248}
   m_Center: {x: -5.5589125e-15, y: 8.026571e-16, z: 0.00000002980233}
+--- !u!114 &1893962158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893962150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef390d23ff4c1064a865a07adc3c708d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saltPileObject: {fileID: 1026491693}
+  saltPileRenderer: {fileID: 1026491696}
+  saltPileTransform: {fileID: 1026491698}
+  pourParticles: {fileID: 0}
+  OnFillStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFillFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1931186478 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7150805340199678224, guid: 981481203855ad047af5417a6de8e9c8, type: 3}
@@ -1051,3 +1255,4 @@ SceneRoots:
   - {fileID: 1318233366}
   - {fileID: 1856722949}
   - {fileID: 34554629}
+  - {fileID: 1165327267}
