@@ -1,0 +1,477 @@
+fileFormatVersion: 2
+guid: 4dfea0a071ba6ff4e863efc88ade212f
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bottle_M
+    second: {fileID: 2100000, guid: b09e68be4dce5804892ceb4d3d3f7d19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bunsen Burner
+    second: {fileID: 2100000, guid: 192e8ac567787d147b0d28ab91bff200, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cap_M1
+    second: {fileID: 2100000, guid: 433e581a1b583104b950b6165f5eae51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chem_Table
+    second: {fileID: 2100000, guid: 6ad1907caf44b8f4bb26a69e66f86a47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chemical Labels Decals
+    second: {fileID: 2100000, guid: f7c301c8179244f40b3fdba811eb1aa7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chemicals Liquid
+    second: {fileID: 2100000, guid: 7688ec4b0ee35944d8f55484d5122ee1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cobalt Glass
+    second: {fileID: 2100000, guid: b4b381caf1836ea4a99e381924a423eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Copper Sulphate (CuSO\u2084)"
+    second: {fileID: 2100000, guid: ce917f5ea50797a42beea2c9f00eeca2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Copper Sulphate (CuSO\u2084) Salt"
+    second: {fileID: 2100000, guid: 6e7cfdcd059c7104d861ad092da7f645, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Copper Sulphate Crystal
+    second: {fileID: 2100000, guid: 5ac42819c8d545d4196a8a5156d617b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cork_M
+    second: {fileID: 2100000, guid: 5d030fb3c11d6764694521d7b355becd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Delivery_tube
+    second: {fileID: 2100000, guid: 67353e1369aa05e48b4d1c602234ac93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DopperGlass
+    second: {fileID: 2100000, guid: 6295a7931387b404483c8d49308b6b6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass Bottle glass
+    second: {fileID: 2100000, guid: a9b8efbb69c6357438b1d6b4f4177d34, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Litmus_Paper_M
+    second: {fileID: 2100000, guid: d4b759f5ec27b5b4dbee937e38dbb0be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Platinum_Wire_M
+    second: {fileID: 2100000, guid: 07f8a006b7f81e54b961f7aacdb4720b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sink & OB Tray
+    second: {fileID: 2100000, guid: f29df1f89876a4544840386722a7d9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spatula
+    second: {fileID: 2100000, guid: bc51259a75366d5489cdb700c23f1bdd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sticker_M
+    second: {fileID: 2100000, guid: d36a3b8244beabb449cbbba8608aa02f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sticker_M2
+    second: {fileID: 2100000, guid: 7bfc4aa3222686a458e128825c84eff3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Table Labels
+    second: {fileID: 2100000, guid: 657ef8e072a7ec54aa3b8786d48fe433, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Test tube Holder
+    second: {fileID: 2100000, guid: a642b5187e59be74aa37f5f02039c477, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TestTubeGlass
+    second: {fileID: 2100000, guid: a216546b095db2a46afed6bbae6c9d94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WatchGlass
+    second: {fileID: 2100000, guid: 4d76b5c6a8bf05b40840e7adc6d12aa4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blue plastic.001
+    second: {fileID: 2100000, guid: f2697828e8165a44eae84d076278d941, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clamp_stand1
+    second: {fileID: 2100000, guid: 9ac8f41df48cc2d42806181b045fd2f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gas testing splints
+    second: {fileID: 2100000, guid: f370c7982b8c76144a4a8c6d104bfe0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: red plastic
+    second: {fileID: 2100000, guid: f07c7652b0bef86469cc057c2116b70e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water bottel top
+    second: {fileID: 2100000, guid: 0dbddbeeab78f72439fc65ec2d70da31, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bunsen Burner_low_Bunsen Burner4K_AlbedoTransparency
+    second: {fileID: 2800000, guid: b46cb90fdcd8d904f8d5b1323ae95d91, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bunsen Burner_low_Bunsen Burner4K_MetallicSmoothness
+    second: {fileID: 2800000, guid: 7884d30519e83ba4e99df17aa1d227b5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bunsen Burner_low_Bunsen Burner4K_Normal
+    second: {fileID: 2800000, guid: 429f2da8d48eb93498942b2bce9216be, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chem_ table_Chem_Table_AlbedoTransparency
+    second: {fileID: 2800000, guid: fc962c18f364bc244b50617607cf1d7b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chem_ table_Chem_Table_MetallicSmoothness
+    second: {fileID: 2800000, guid: fba85c0c44f7a5749a88581b1401d4d9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chem_ table_Chem_Table_Normal
+    second: {fileID: 2800000, guid: 31451693cc159e54eae10f6f368f8edf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chem_ table_Sink & OB Tray_AlbedoTransparency
+    second: {fileID: 2800000, guid: 15f0993bd438c3f4a9ec257cc9ab67b0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chem_ table_Sink & OB Tray_MetallicSmoothness
+    second: {fileID: 2800000, guid: 314aed0dd9da7634b977cdd6c45af651, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chem_ table_Sink & OB Tray_Normal
+    second: {fileID: 2800000, guid: a670162668d8e0949b3127bb466b17cd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chemical Labels Decals
+    second: {fileID: 2800000, guid: 346804ef1c852b44fa137b23ea2a27c1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chemical Labels Decals 2
+    second: {fileID: 2800000, guid: c23a0db27b07bbc47a28c912ad21edf7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cork_Cork_M_AlbedoTransparency
+    second: {fileID: 2800000, guid: 761ee78c777932e4181cd09788a97243, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cork_Cork_M_MetallicSmoothness
+    second: {fileID: 2800000, guid: 4b181586dbc964e4cb7210d69353846c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cork_Cork_M_Normal
+    second: {fileID: 2800000, guid: 3914bbd1d0099ad4a941b700143619a5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Distilled Water 2_water bottel top_AlbedoTransparency
+    second: {fileID: 2800000, guid: 6c977b5efb417654999e960f5c8e6432, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Distilled Water 2_water bottel top_MetallicSmoothness
+    second: {fileID: 2800000, guid: 95cb9533b423ee54d8e9e7e7a96e0817, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Distilled Water 2_water bottel top_Normal
+    second: {fileID: 2800000, guid: b5476d9fc050a3848b84bb7afc77c67f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Dropper_Cap_M_AlbedoTransparency
+    second: {fileID: 2800000, guid: fb4a33a86c75df84484d64fc8bffc488, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Dropper_Cap_M_MetallicSmoothness
+    second: {fileID: 2800000, guid: 515d5668280a8ba438ced306654ff112, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Gas Testing Splints_gas testing splints_AlbedoTransparency
+    second: {fileID: 2800000, guid: 41ef0b559ea084a4291fde36218ae5a7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Gas Testing Splints_gas testing splints_MetallicSmoothness
+    second: {fileID: 2800000, guid: 4b618e0b691bc1e41b307f1043b938e5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Gas Testing Splints_gas testing splints_Normal
+    second: {fileID: 2800000, guid: 9c1c6a142dcd36f43b9fab7552fa0bcd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Litmus paper_Litmus_Paper_M_AlbedoTransparency
+    second: {fileID: 2800000, guid: 5926add4c6de82f47a00aba65253be8c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Litmus paper_Litmus_Paper_M_MetallicSmoothness
+    second: {fileID: 2800000, guid: ce28ed9ef3b913c488e5ec82c62d3dd2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Litmus paper_Litmus_Paper_M_Normal
+    second: {fileID: 2800000, guid: d3a84bc18db9cab40a6847d9a82472fd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Platinum Wire_Platinum_Wire_M_AlbedoTransparency
+    second: {fileID: 2800000, guid: b3331ad48405c934babd1d6de0f40866, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Platinum Wire_Platinum_Wire_M_MetallicSmoothness
+    second: {fileID: 2800000, guid: cbcc5d2be783eda44be5ba0028bc04d6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Platinum Wire_Platinum_Wire_M_Normal
+    second: {fileID: 2800000, guid: ef7c99def15977543b9487e67f1a5c4d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: "Salt_Copper Sulphate (CuSO\u2084) Salt_AlbedoTransparency"
+    second: {fileID: 2800000, guid: 6a79acd024da0fc4781f5913d6dd8888, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: "Salt_Copper Sulphate (CuSO\u2084) Salt_MetallicSmoothness"
+    second: {fileID: 2800000, guid: b189a4ddc7e8a144cacbc3e6f682807a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: "Salt_Copper Sulphate (CuSO\u2084) Salt_Normal"
+    second: {fileID: 2800000, guid: d0224be3b97faca43ae045210610908b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Spatula_Spatula_AlbedoTransparency
+    second: {fileID: 2800000, guid: a9167437934cde94689c1d4f588f6eb2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Spatula_Spatula_MetallicSmoothness
+    second: {fileID: 2800000, guid: a88fbd2ab160a8b41b2026ef3647df9b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Spatula_Spatula_Normal
+    second: {fileID: 2800000, guid: b9ced35032e371b438a04f2265cc1c62, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TestTube Holder_Testtube Holder 4K_AlbedoTransparency
+    second: {fileID: 2800000, guid: 4d4c407b6c3e0224f8ad327f6d12e431, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TestTube Holder_Testtube Holder 4K_MetallicSmoothness
+    second: {fileID: 2800000, guid: 269b6dab808ff7e4296e8741dad1b217, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TestTube Holder_Testtube Holder 4K_Normal
+    second: {fileID: 2800000, guid: 0ed9c13303aa9a04c9f2bcdb9ec298d7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: clamp stand_2k_AlbedoTransparency
+    second: {fileID: 2800000, guid: acc0b925870b56444b702b81e739bf24, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: clamp stand_2k_MetallicSmoothness
+    second: {fileID: 2800000, guid: a907e3ee1b772674498ed3a03d757e7b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: clamp stand_2k_Normal
+    second: {fileID: 2800000, guid: 6d5a2232dda9dbd4291ed2b8af599af6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: test_glass_AlbedoTransparency
+    second: {fileID: 2800000, guid: 6db2feaf16b4a7d49af81bf498dc663a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: test_glass_Normal
+    second: {fileID: 2800000, guid: 81491f56eb759da458630ff1921ff7ff, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: white Bottle with Sticker_Bottle_M_AlbedoTransparency
+    second: {fileID: 2800000, guid: 864f74672d1b3614394f53651f1771d8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: white Bottle with Sticker_Bottle_M_MetallicSmoothness
+    second: {fileID: 2800000, guid: e4acbc940cf010e469c467c4fb23314f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: white Bottle with Sticker_Bottle_M_Normal
+    second: {fileID: 2800000, guid: 1877fec0eb0251341b77696126cc1217, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
