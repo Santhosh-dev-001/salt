@@ -8,7 +8,7 @@ public enum SaltType
     CopperSulphate,
     SodiumChloride,
     AmmoniumChloride,
-    SodiumCarbonate,
+    CalciumCarbonate,
     PotassiumNitrate
 }
 
