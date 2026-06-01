@@ -6,55 +6,56 @@ namespace SaltAnalysis.Data
     [CreateAssetMenu(fileName = "SessionManager", menuName = "SaltAnalysis/Session Manager")]
     public class SessionManager : ScriptableObject
     {
-        public SaltType CurrentSalt { get; private set; } = SaltType.None;
-        public int CurrentStep { get; private set; } = 0;
-        public ExperimentType CurrentExperiment => (ExperimentType)CurrentStep;
+        [Header("Runtime State � Read Only")]
+        [SerializeField] SaltType _currentSalt;
+        [SerializeField] int _currentStep;
+        [SerializeField] ExperimentType _currentExperiment;
+
+        public SaltType CurrentSalt => _currentSalt;
+        public int CurrentStep => _currentStep;
+        public ExperimentType CurrentExperiment => _currentExperiment;
 
         System.Action _onReset;
 
         void OnEnable()
         {
-            CurrentSalt = SaltType.None;
-            CurrentStep = 0;
-            _onReset = null;
+            _currentSalt = SaltType.None;
+            _currentStep = 0;
+            _currentExperiment = ExperimentType.PreliminaryExamination;
         }
-
-        // ── Salt ─────────────────────────────────────────────────────────────
 
         public bool TrySetSalt(SaltType newSalt)
         {
-            if (CurrentSalt == newSalt) return false;
-
-            CurrentSalt = newSalt;
-            CurrentStep = 0;
+            if (_currentSalt == newSalt) return false;
+            _currentSalt = newSalt;
+            _currentStep = 0;
+            _currentExperiment = (ExperimentType)_currentStep;
             _onReset?.Invoke();
             return true;
         }
 
-        public void Clear()
-        {
-            CurrentSalt = SaltType.None;
-            CurrentStep = 0;
-            _onReset?.Invoke();
-        }
-
-        // ── Step ─────────────────────────────────────────────────────────────
-
         public bool IsStepAllowed(ExperimentType type)
         {
-            return (int)type == CurrentStep;
+            return (int)type == _currentStep;
         }
 
         public void IncrementStep()
         {
-            CurrentStep++;
+            _currentStep++;
+            _currentExperiment = (ExperimentType)_currentStep;
         }
-
-        // ── Reset callback ───────────────────────────────────────────────────
 
         public void RegisterResetCallback(System.Action callback)
         {
             _onReset = callback;
+        }
+
+        public void Clear()
+        {
+            _currentSalt = SaltType.None;
+            _currentStep = 0;
+            _currentExperiment = ExperimentType.PreliminaryExamination;
+            _onReset?.Invoke();
         }
     }
 }

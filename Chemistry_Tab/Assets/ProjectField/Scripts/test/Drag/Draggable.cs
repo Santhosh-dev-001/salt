@@ -7,10 +7,8 @@ namespace SaltAnalysis.Interaction
     public class Draggable : MonoBehaviour
     {
         [Header("Identity")]
-        [SerializeField] string _id;
-        [SerializeField] public DraggableType draggableType;
         [SerializeField] public SaltType saltType;
-        [SerializeField] bool isInteractable = true;
+        [SerializeField] public string stringId;
 
         [Header("Drag Settings")]
         [SerializeField] float dragSmooth = 15f;
@@ -30,12 +28,11 @@ namespace SaltAnalysis.Interaction
         [SerializeField] bool disableColliderOnPickup = true;
         [SerializeField] bool enableColliderOnDrop = true;
 
-        // ── Public accessors ─────────────────────────────────────────────────
+        // ── Public ───────────────────────────────────────────────────────────
 
         public static Draggable CurrentlyDragged { get; private set; }
 
-        public string Id => _id;
-        public bool IsInteractable => isInteractable;
+        public bool IsInteractable => _isInteractable;
         public float HeldDepth => heldDepth;
         public Vector3 DragStartPos => _dragStartPos;
         public Quaternion DragStartRot => _dragStartRot;
@@ -47,13 +44,14 @@ namespace SaltAnalysis.Interaction
         Vector3 _dragStartPos;
         Quaternion _dragStartRot;
         bool _isDragging;
+        bool _isInteractable = true;
 
         void Awake()
         {
             _col = GetComponent<Collider>();
         }
 
-        // ── Drag lifecycle ───────────────────────────────────────────────────
+        // ── Drag ─────────────────────────────────────────────────────────────
 
         public void BeginDrag(Vector3 hitPoint)
         {
@@ -73,7 +71,10 @@ namespace SaltAnalysis.Interaction
                 transform.position, worldPosition, Time.deltaTime * dragSmooth);
         }
 
-        public void EndDrag() { }
+        public void EndDrag()
+        {
+            _isDragging = false;
+        }
 
         // ── Drop ─────────────────────────────────────────────────────────────
 
@@ -93,7 +94,7 @@ namespace SaltAnalysis.Interaction
 
         public void SetInteractable(bool state)
         {
-            isInteractable = state;
+            _isInteractable = state;
             if (_col != null) _col.enabled = state;
         }
 
@@ -152,15 +153,11 @@ namespace SaltAnalysis.Interaction
             CurrentlyDragged = null;
         }
 
-        // ── Helpers ──────────────────────────────────────────────────────────
-
         Quaternion ComputeDropRotation(Transform zoneTrans)
         {
             if (!rotateOnDrop) return transform.rotation;
-
             if (dropRotationRelativeToZone && zoneTrans != null)
                 return zoneTrans.rotation * Quaternion.Euler(dropRotationEuler);
-
             return Quaternion.Euler(dropRotationEuler);
         }
 

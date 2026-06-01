@@ -460,9 +460,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be157a66eeeed314d8ebffe8650849ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _draggables:
-  - {fileID: 7317804428016706692}
-  - {fileID: 8325233500886839316}
+  _entries:
+  - {fileID: 7317804428016706694}
+  - {fileID: 8325233500886839318}
 --- !u!4 &683118303
 Transform:
   m_ObjectHideFlags: 0
@@ -6426,6 +6426,7 @@ GameObject:
   - component: {fileID: 8325233500886839315}
   - component: {fileID: 8325233500886839317}
   - component: {fileID: 8325233500886839316}
+  - component: {fileID: 8325233500886839318}
   m_Layer: 3
   m_Name: Saptula_PE_A
   m_TagString: Untagged
@@ -8789,7 +8790,7 @@ GameObject:
   - component: {fileID: 6843322507541617957}
   - component: {fileID: 682157588173356222}
   - component: {fileID: 1893962154}
-  - component: {fileID: 6987223703756118516}
+  - component: {fileID: 6987223703756118519}
   - component: {fileID: 6987223703756118517}
   - component: {fileID: 6987223703756118518}
   m_Layer: 7
@@ -10875,10 +10876,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3792cf80deafa864abe839e366f44204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: SodiumChloride
-  draggableType: 0
   saltType: 2
-  isInteractable: 1
+  stringId: 
   dragSmooth: 15
   heldDepth: 0.5
   dropDuration: 0.5
@@ -10993,10 +10992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3792cf80deafa864abe839e366f44204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: CalciumCarbonate
-  draggableType: 0
   saltType: 4
-  isInteractable: 1
+  stringId: 
   dragSmooth: 15
   heldDepth: 0.5
   dropDuration: 0.5
@@ -11161,10 +11158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3792cf80deafa864abe839e366f44204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: PotassiumNitrate
-  draggableType: 0
   saltType: 5
-  isInteractable: 1
+  stringId: 
   dragSmooth: 15
   heldDepth: 0.5
   dropDuration: 0.5
@@ -12050,10 +12045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3792cf80deafa864abe839e366f44204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: AmmoniumChloride
-  draggableType: 0
   saltType: 3
-  isInteractable: 1
+  stringId: 
   dragSmooth: 15
   heldDepth: 0.5
   dropDuration: 0.5
@@ -13867,22 +13860,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652707283648}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6987223703756118516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4125269374901538579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e96f61dea207ba459bc643ffa06ef79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _zoneId: CopperSulphate
-  _registry: {fileID: 11400000, guid: b2de41b06bccb2f4bba648fb68ab26ca, type: 2}
-  _session: {fileID: 11400000, guid: f568749d4aecdb144bad878088464b58, type: 2}
-  _draggableRegistry: {fileID: 683118302}
 --- !u!114 &6987223703756118517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13895,14 +13872,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f90475c9246d5a4894f2e3f69e4ee9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ids:
-  - CopperSulphate
-  - PotassiumNitrate
-  - CalciumCarbonate
-  - AmmoniumChloride
-  - SodiumChloride
-  _targets:
-  - {fileID: 7209735288894061331}
+  _entries:
+  - saltType: 1
+    stringId: cuso4priliminery
+    targets:
+    - {fileID: 7209735288894061331}
 --- !u!114 &6987223703756118518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13915,10 +13889,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b23aa410b626864c8414ce5b15c9edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ids:
-  - Spatula
-  _animators:
-  - {fileID: 6737455918390868276}
+  _entries:
+  - saltType: 1
+    stringId: Spatula
+    animator: {fileID: 6737455918390868276}
+--- !u!114 &6987223703756118519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125269374901538579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9a2567b5c91234eaec80e82307a87a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _experimentType: 0
+  _saltDataList:
+  - {fileID: 11400000, guid: d8b99d69c466a4949b7910b6cf23ea06, type: 2}
+  - {fileID: 11400000, guid: cb8960baf0f880e4abae3a491382cfdc, type: 2}
+  - {fileID: 11400000, guid: 83b405589e9ec6749b09ec86e430756b, type: 2}
+  - {fileID: 11400000, guid: 0737ca0e8b1776a4bb1a0a4213a1d715, type: 2}
+  - {fileID: 11400000, guid: 8daff67610ed6a74fa24e4aab4febb09, type: 2}
+  _session: {fileID: 11400000, guid: f568749d4aecdb144bad878088464b58, type: 2}
+  _draggableRegistry: {fileID: 683118302}
 --- !u!4 &6989867284337045824
 Transform:
   m_ObjectHideFlags: 0
@@ -14470,6 +14465,7 @@ GameObject:
   - component: {fileID: 819813013934598092}
   - component: {fileID: 7317804428016706693}
   - component: {fileID: 7317804428016706692}
+  - component: {fileID: 7317804428016706694}
   m_Layer: 3
   m_Name: "Copper Sulphate (CuSO\u2084)_P"
   m_TagString: Untagged
@@ -14484,15 +14480,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7317804428016706691}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3792cf80deafa864abe839e366f44204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: CopperSulphate
-  draggableType: 0
   saltType: 1
-  isInteractable: 1
+  stringId: cuso4priliminery
   dragSmooth: 15
   heldDepth: 0.5
   dropDuration: 0.5
@@ -14524,6 +14518,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 22.451616, y: 22.766485, z: 45.378273}
   m_Center: {x: 0.08329447, y: -0.07201835, z: -22.85379}
+--- !u!114 &7317804428016706694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7317804428016706691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7fc877eb8faf9d4dac3110484b121fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stepIndex: 1
 --- !u!23 &7320768454646464199
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15918,15 +15925,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2969556598377541946}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3792cf80deafa864abe839e366f44204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: Spatula
-  draggableType: 1
   saltType: 1
-  isInteractable: 1
+  stringId: Spatula
   dragSmooth: 15
   heldDepth: 0.5
   dropDuration: 0.5
@@ -15958,6 +15963,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0005686718, y: 0.0031770736, z: 0.0004944013}
   m_Center: {x: 0.000019549532, y: 0.0012663917, z: 0.00015858802}
+--- !u!114 &8325233500886839318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969556598377541946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7fc877eb8faf9d4dac3110484b121fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stepIndex: 2
 --- !u!1 &8339668851380779945
 GameObject:
   m_ObjectHideFlags: 0

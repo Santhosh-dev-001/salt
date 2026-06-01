@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SaltAnalysis.Core;
 using SaltAnalysis.Interface;
 using SaltAnalysis.Data;
 
@@ -8,41 +9,67 @@ namespace SaltAnalysis.Interaction
 {
     public class OnDropMaterialColor : MonoBehaviour, IDropEffect
     {
-        [SerializeField] string[] _ids;
-        [SerializeField] List<Renderer> _targets;
-
-        public void Execute(InteractionStepData step)
+        [System.Serializable]
+        public class SaltEntry
         {
-            if (!step.changeMaterialColor) return;
-            if (!IdMatches()) return;
-
-            foreach (var r in _targets)
-                if (r != null)
-                    StartCoroutine(LerpColor(r, step));
+            public SaltType saltType;
+            public string stringId;
+            public List<Renderer> targets = new();
         }
 
-        IEnumerator LerpColor(Renderer r, InteractionStepData step)
+        [SerializeField] List<SaltEntry> _entries = new();
+
+        Dictionary<(SaltType, string), List<Renderer>> _map;
+
+        void Awake()
         {
-            Color start = r.material.GetColor(step.materialColorProperty);
+            _map = new();
+            foreach (var e in _entries)
+                _map[(e.saltType, e.stringId)] = e.targets;
+        }
+
+        public bool IsFlagged(InteractionStep step)
+        {
+            if (!step.stepEffects.HasFlag(StepEffects.MaterialColor)) return false;
+            if (Draggable.CurrentlyDragged == null) return false;
+            return _map.ContainsKey((Draggable.CurrentlyDragged.saltType, Draggable.CurrentlyDragged.stringId));
+        }
+
+        public void Execute(InteractionStep step, System.Action onComplete)
+        {
+            if (!IsFlagged(step)) return;
+
+            var key = (Draggable.CurrentlyDragged.saltType, Draggable.CurrentlyDragged.stringId);
+            if (!_map.TryGetValue(key, out var targets)) return;
+
+            StartCoroutine(LerpAllColors(targets, step, onComplete));
+        }
+
+        IEnumerator LerpAllColors(List<Renderer> targets, InteractionStep step, System.Action onComplete)
+        {
             float elapsed = 0f;
+            Color[] startColors = new Color[targets.Count];
+
+            for (int i = 0; i < targets.Count; i++)
+                if (targets[i] != null)
+                    startColors[i] = targets[i].material.GetColor(step.materialColorProperty);
 
             while (elapsed < step.materialColorDuration)
             {
                 elapsed += Time.deltaTime;
-                r.material.SetColor(step.materialColorProperty,
-                    Color.Lerp(start, step.materialColor, elapsed / step.materialColorDuration));
+                float t = elapsed / step.materialColorDuration;
+                for (int i = 0; i < targets.Count; i++)
+                    if (targets[i] != null)
+                        targets[i].material.SetColor(step.materialColorProperty,
+                            Color.Lerp(startColors[i], step.materialColor, t));
                 yield return null;
             }
 
-            r.material.SetColor(step.materialColorProperty, step.materialColor);
-        }
+            for (int i = 0; i < targets.Count; i++)
+                if (targets[i] != null)
+                    targets[i].material.SetColor(step.materialColorProperty, step.materialColor);
 
-        bool IdMatches()
-        {
-            if (Draggable.CurrentlyDragged == null) return false;
-            foreach (var id in _ids)
-                if (id == Draggable.CurrentlyDragged.Id) return true;
-            return false;
+            onComplete?.Invoke();
         }
     }
 }

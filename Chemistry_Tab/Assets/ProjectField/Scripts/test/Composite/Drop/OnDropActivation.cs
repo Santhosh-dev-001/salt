@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using SaltAnalysis.Core;
 using SaltAnalysis.Interface;
 using SaltAnalysis.Data;
 
@@ -7,24 +8,43 @@ namespace SaltAnalysis.Interaction
 {
     public class OnDropActivation : MonoBehaviour, IDropEffect
     {
-        [SerializeField] string[] _ids;
-        [SerializeField] List<GameObject> _targets;
-
-        public void Execute(InteractionStepData step)
+        [System.Serializable]
+        public class SaltEntry
         {
-            if (!step.activateObjects) return;
-            if (!IdMatches()) return;
-
-            foreach (var go in _targets)
-                if (go != null) go.SetActive(true);
+            public SaltType saltType;
+            public string stringId;
+            public List<GameObject> targets = new();
         }
 
-        bool IdMatches()
+        [SerializeField] List<SaltEntry> _entries = new();
+
+        Dictionary<(SaltType, string), List<GameObject>> _map;
+
+        void Awake()
         {
+            _map = new();
+            foreach (var e in _entries)
+                _map[(e.saltType, e.stringId)] = e.targets;
+        }
+
+        public bool IsFlagged(InteractionStep step)
+        {
+            if (!step.stepEffects.HasFlag(StepEffects.Activation)) return false;
             if (Draggable.CurrentlyDragged == null) return false;
-            foreach (var id in _ids)
-                if (id == Draggable.CurrentlyDragged.Id) return true;
-            return false;
+            return _map.ContainsKey((Draggable.CurrentlyDragged.saltType, Draggable.CurrentlyDragged.stringId));
+        }
+
+        public void Execute(InteractionStep step, System.Action onComplete)
+        {
+            if (!IsFlagged(step)) return;
+
+            var key = (Draggable.CurrentlyDragged.saltType, Draggable.CurrentlyDragged.stringId);
+            if (!_map.TryGetValue(key, out var targets)) return;
+
+            foreach (var go in targets)
+                if (go != null) go.SetActive(true);
+
+            onComplete?.Invoke();
         }
     }
 }

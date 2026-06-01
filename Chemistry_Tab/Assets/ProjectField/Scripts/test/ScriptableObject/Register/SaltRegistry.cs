@@ -7,13 +7,13 @@ namespace SaltAnalysis.Data
     [CreateAssetMenu(fileName = "SaltRegistry", menuName = "SaltAnalysis/Salt Registry")]
     public class SaltRegistry : ScriptableObject
     {
-        [SerializeField] List<SaltAnalysisData> _salts = new();
+        [SerializeField] List<SaltData> _salts = new();
 
-        public SaltAnalysisData Get(SaltType type)
+        public SaltData Get(SaltType type)
         {
             return _salts.Find(d => d.saltType == type);
         }
 
-        public IReadOnlyList<SaltAnalysisData> All => _salts;
+        public IReadOnlyList<SaltData> All => _salts;
     }
 }

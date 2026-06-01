@@ -5,20 +5,22 @@ namespace SaltAnalysis.Interaction
 {
     public class DraggableRegistry : MonoBehaviour
     {
-        [SerializeField] List<Draggable> _draggables;
+        [SerializeField] List<DraggableStepIndex> _entries = new();
 
-        public void SetInteractable(string id, bool state)
+        public void SetupForStep(int stepIndex)
         {
-            foreach (var d in _draggables)
-                if (d != null && d.Id == id)
-                    d.SetInteractable(state);
+            foreach (var e in _entries)
+            {
+                if (e == null || e.Draggable == null) continue;
+                e.Draggable.SetInteractable(e.StepIndex == stepIndex);
+            }
         }
 
         public void SetAllInteractable(bool state)
         {
-            foreach (var d in _draggables)
-                if (d != null)
-                    d.SetInteractable(state);
+            foreach (var e in _entries)
+                if (e != null && e.Draggable != null)
+                    e.Draggable.SetInteractable(state);
         }
     }
 }

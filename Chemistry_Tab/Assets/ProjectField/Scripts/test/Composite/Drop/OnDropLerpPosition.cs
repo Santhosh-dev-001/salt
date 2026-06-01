@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SaltAnalysis.Core;
 using SaltAnalysis.Interface;
 using SaltAnalysis.Data;
 
@@ -9,63 +10,77 @@ namespace SaltAnalysis.Interaction
     public class OnDropLerpPosition : MonoBehaviour, IDropEffect
     {
         [System.Serializable]
-        public class PositionTarget
+        public class SaltEntry
         {
-            public Transform target;
-            public Vector3 targetPosition;
-            public bool useLocalSpace;
-            public float duration = 1f;
+            public SaltType saltType;
+            public string stringId;
+            public List<Transform> targets = new();
         }
 
-        [SerializeField] string[] _ids;
-        [SerializeField] List<PositionTarget> _targets;
+        [SerializeField] List<SaltEntry> _entries = new();
 
-        public void Execute(InteractionStepData step)
+        Dictionary<(SaltType, string), List<Transform>> _map;
+
+        void Awake()
         {
-            if (!step.lerpPosition) return;
-            if (!IdMatches()) return;
-
-            foreach (var t in _targets)
-                if (t.target != null)
-                    StartCoroutine(LerpPosition(t));
+            _map = new();
+            foreach (var e in _entries)
+                _map[(e.saltType, e.stringId)] = e.targets;
         }
 
-        IEnumerator LerpPosition(PositionTarget t)
+        public bool IsFlagged(InteractionStep step)
+        {
+            if (!step.stepEffects.HasFlag(StepEffects.LerpPosition)) return false;
+            if (Draggable.CurrentlyDragged == null) return false;
+            return _map.ContainsKey((Draggable.CurrentlyDragged.saltType, Draggable.CurrentlyDragged.stringId));
+        }
+
+        public void Execute(InteractionStep step, System.Action onComplete)
+        {
+            if (!IsFlagged(step)) return;
+
+            var key = (Draggable.CurrentlyDragged.saltType, Draggable.CurrentlyDragged.stringId);
+            if (!_map.TryGetValue(key, out var targets)) return;
+
+            StartCoroutine(LerpAllPositions(targets, step, onComplete));
+        }
+
+        IEnumerator LerpAllPositions(List<Transform> targets, InteractionStep step, System.Action onComplete)
         {
             float elapsed = 0f;
+            Vector3[] startPositions = new Vector3[targets.Count];
 
-            if (t.useLocalSpace)
-            {
-                Vector3 start = t.target.localPosition;
-                while (elapsed < t.duration)
-                {
-                    elapsed += Time.deltaTime;
-                    t.target.localPosition = Vector3.Lerp(start, t.targetPosition,
-                        elapsed / t.duration);
-                    yield return null;
-                }
-                t.target.localPosition = t.targetPosition;
-            }
-            else
-            {
-                Vector3 start = t.target.position;
-                while (elapsed < t.duration)
-                {
-                    elapsed += Time.deltaTime;
-                    t.target.position = Vector3.Lerp(start, t.targetPosition,
-                        elapsed / t.duration);
-                    yield return null;
-                }
-                t.target.position = t.targetPosition;
-            }
-        }
+            for (int i = 0; i < targets.Count; i++)
+                if (targets[i] != null)
+                    startPositions[i] = step.useLocalSpace
+                        ? targets[i].localPosition
+                        : targets[i].position;
 
-        bool IdMatches()
-        {
-            if (Draggable.CurrentlyDragged == null) return false;
-            foreach (var id in _ids)
-                if (id == Draggable.CurrentlyDragged.Id) return true;
-            return false;
+            while (elapsed < step.lerpPositionDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / step.lerpPositionDuration;
+                for (int i = 0; i < targets.Count; i++)
+                {
+                    if (targets[i] == null) continue;
+                    if (step.useLocalSpace)
+                        targets[i].localPosition = Vector3.Lerp(startPositions[i], step.targetPosition, t);
+                    else
+                        targets[i].position = Vector3.Lerp(startPositions[i], step.targetPosition, t);
+                }
+                yield return null;
+            }
+
+            for (int i = 0; i < targets.Count; i++)
+            {
+                if (targets[i] == null) continue;
+                if (step.useLocalSpace)
+                    targets[i].localPosition = step.targetPosition;
+                else
+                    targets[i].position = step.targetPosition;
+            }
+
+            onComplete?.Invoke();
         }
     }
 }

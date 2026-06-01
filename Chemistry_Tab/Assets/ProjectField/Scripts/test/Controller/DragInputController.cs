@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
-using SaltAnalysis.Interface;
-using SaltAnalysis.Data;
 using SaltAnalysis.Core;
-using SaltAnalysis.Zones;
+using SaltAnalysis.Data;
 
 namespace SaltAnalysis.Interaction
 {
@@ -29,26 +27,26 @@ namespace SaltAnalysis.Interaction
 
         void OnEnable()
         {
-            _pressAction.action.started += OnDragStarted;
-            _pressAction.action.canceled += OnDragCanceled;
+            _pressAction.action.started += OnPressStarted;
+            _pressAction.action.canceled += OnPressCanceled;
             _pressAction.action.Enable();
             _dragAction.action.Enable();
         }
 
         void OnDisable()
         {
-            _pressAction.action.started -= OnDragStarted;
-            _pressAction.action.canceled -= OnDragCanceled;
+            _pressAction.action.started -= OnPressStarted;
+            _pressAction.action.canceled -= OnPressCanceled;
             _pressAction.action.Disable();
             _dragAction.action.Disable();
         }
 
         void Update() => Drag();
 
-        // ── Input callbacks ──────────────────────────────────────────────────
+        // ── Input ─────────────────────────────────────────────────────────────
 
-        void OnDragStarted(InputAction.CallbackContext ctx) => TryPick();
-        void OnDragCanceled(InputAction.CallbackContext ctx) => Drop();
+        void OnPressStarted(InputAction.CallbackContext ctx) => TryPick();
+        void OnPressCanceled(InputAction.CallbackContext ctx) => TryDrop();
 
         Vector2 PointerPosition() => _dragAction.action.ReadValue<Vector2>();
 
@@ -56,8 +54,8 @@ namespace SaltAnalysis.Interaction
 
         void TryPick()
         {
-            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-                return;
+            if (_raycastCamera == null) return;
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
 
             Ray ray = _raycastCamera.ScreenPointToRay(PointerPosition());
             if (!Physics.Raycast(ray, out RaycastHit hit, 200f, _draggableLayer)) return;
@@ -68,7 +66,8 @@ namespace SaltAnalysis.Interaction
             _current = draggable;
             _depth = _current.HeldDepth;
 
-            if (_current.draggableType == DraggableType.Salt)
+            // notify session if salt draggable
+            if (_current.saltType != SaltType.None)
                 _session.TrySetSalt(_current.saltType);
 
             _current.BeginDrag(hit.point);
@@ -89,27 +88,24 @@ namespace SaltAnalysis.Interaction
 
         // ── Drop ─────────────────────────────────────────────────────────────
 
-        void Drop()
+        void TryDrop()
         {
             if (_current == null) return;
+            if (_raycastCamera == null) return;
 
             Ray ray = _raycastCamera.ScreenPointToRay(PointerPosition());
             bool droppedOnZone = false;
 
             if (Physics.Raycast(ray, out RaycastHit hit, 200f, _dropZoneLayer))
             {
-                ExperimentZoneBase zone = hit.collider.GetComponent<ExperimentZoneBase>();
+                ExperimentZone zone = hit.collider.GetComponent<ExperimentZone>();
                 if (zone != null)
                 {
-                    if (!zone.IsStepAllowed(_session))
-                    {
-                        Debug.Log("[DragInput] Complete the previous experiment first.");
-                    }
-                    else
+                    // zone validates everything — salt type, string id, step
+                    bool accepted = zone.TryDrop(_current);
+                    if (accepted)
                     {
                         droppedOnZone = true;
-                        // pass draggable ID and zone ID — zone validates and fires effects
-                        zone.OnStepDropped(_current.Id, zone.ZoneId);
                         _current.Attach(hit.transform);
                     }
                 }
