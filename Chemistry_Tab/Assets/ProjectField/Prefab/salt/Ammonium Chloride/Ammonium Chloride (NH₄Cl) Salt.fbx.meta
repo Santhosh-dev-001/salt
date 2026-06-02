@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: aff3af61b74a3524a9534a98fdb06d56
+guid: 82400cbc97243c548b6a272d83f5baf6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Ammonium Chloride (NH\u2084Cl) Salt"
+    second: {fileID: 2100000, guid: c8615a2fd53b6cd4fa155581f22b50a4, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: "Salt_Ammonium Chloride (NH\u2084Cl) Salt_AlbedoTransparency"
+    second: {fileID: 2800000, guid: a26fde63ed6785e448e8de85c70cf4a3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: "Salt_Ammonium Chloride (NH\u2084Cl) Salt_MetallicSmoothness"
+    second: {fileID: 2800000, guid: d7d080e6ba3082444890cfebc4fd203a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: "Salt_Ammonium Chloride (NH\u2084Cl) Salt_Normal"
+    second: {fileID: 2800000, guid: 8e53908bdfe3a224f85331538caf28d1, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

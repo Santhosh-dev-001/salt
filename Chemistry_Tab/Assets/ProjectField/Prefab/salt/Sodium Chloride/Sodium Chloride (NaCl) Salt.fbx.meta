@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: 82400cbc97243c548b6a272d83f5baf6
+guid: aff3af61b74a3524a9534a98fdb06d56
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sodium Chloride (NaCl) Salt
+    second: {fileID: 2100000, guid: ffbe1a606b56c634a9c0580f03397728, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Salt_Sodium Chloride (NaCl) Salt_AlbedoTransparency
+    second: {fileID: 2800000, guid: 0ef5b0aeb35084340b18204b358db4c1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Salt_Sodium Chloride (NaCl) Salt_MetallicSmoothness
+    second: {fileID: 2800000, guid: 547ae70b7b5289248aec06aadce64696, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Salt_Sodium Chloride (NaCl) Salt_Normal
+    second: {fileID: 2800000, guid: e1505d33461f72746a00ab1122343d77, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

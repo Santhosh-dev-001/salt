@@ -17,6 +17,7 @@ namespace SaltAnalysis.Interaction
         [Header("References")]
         [SerializeField] SessionManager _session;
         [SerializeField] DraggableRegistry _draggableRegistry;
+        [SerializeField] ClickableRegistry _clickableRegistry;
 
         public ExperimentType ExperimentType => _experimentType;
 
@@ -94,7 +95,15 @@ namespace SaltAnalysis.Interaction
             if (step == null) return;
 
             if (step.interactionType == InteractionType.Drag)
+            {
+                _clickableRegistry?.SetAllInteractable(false);
                 _draggableRegistry.SetupForStep(_currentStepIndex);
+            }
+            else if (step.interactionType == InteractionType.Click)
+            {
+                _draggableRegistry.SetAllInteractable(false);
+                _clickableRegistry?.SetupForStep(_currentStepIndex);
+            }
         }
 
         void FireEffects(InteractionStep step)
@@ -123,5 +132,69 @@ namespace SaltAnalysis.Interaction
             foreach (var effect in effects)
                 effect.Execute(step, OnEffectDone);
         }
+
+        // ── Click entry point ─────────────────────────────────────────────────
+
+
+        public bool IsStepAllowed(Clickable clickable)
+        {
+            if (!_session.IsStepAllowed(_experimentType)) return false;
+            SaltData match = FindSaltData(clickable.saltType);
+            if (match == null) return false;
+            InteractionStep step = match.GetStep(_currentStepIndex);
+            if (step == null) return false;
+            return step.interactionType == InteractionType.Click;
+        }
+
+        public bool TryClick(Clickable clickable)
+        {
+            if (!_session.IsStepAllowed(_experimentType)) return false;
+
+            SaltData match = FindSaltData(clickable.saltType);
+            if (match == null) return false;
+
+            if (_currentSaltData != match)
+            {
+                _currentSaltData = match;
+                _currentStepIndex = 0;
+                SetupStep();
+            }
+
+            InteractionStep step = _currentSaltData.GetStep(_currentStepIndex);
+            if (step == null) return false;
+
+            if (step.interactionType != InteractionType.Click)
+            {
+                Debug.Log("[ExperimentZone] Current step is not a click step.");
+                return false;
+            }
+
+            FireClickEffects(step);
+            return true;
+        }
+
+        void FireClickEffects(InteractionStep step)
+        {
+            var effects = GetComponents<SaltAnalysis.Interface.IClickEffect>();
+
+            int total = 0;
+            foreach (var effect in effects)
+                if (effect.IsFlagged(step)) total++;
+
+            if (total == 0) { OnStepComplete(); return; }
+
+            int completed = 0;
+            void OnEffectDone()
+            {
+                completed++;
+                if (completed >= total) OnStepComplete();
+            }
+
+            foreach (var effect in effects)
+                effect.Execute(step, OnEffectDone);
+        }
     }
 }
+
+// ── Click entry point — called by ClickInputController ───────────────────────────
+// Partial extension — add this method to ExperimentZone class
