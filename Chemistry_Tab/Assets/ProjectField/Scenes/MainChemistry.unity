@@ -448,8 +448,7 @@ MonoBehaviour:
   _clickableLayer:
     serializedVersion: 2
     m_Bits: 256
-  _zone: {fileID: 6987223703756118519}
-  _pressAction: {fileID: 6381493862512740096, guid: c4a7ca8e9e7c4c54c8d8b235152d6826, type: 3}
+  _pressAction: {fileID: -964591266116185294, guid: c4a7ca8e9e7c4c54c8d8b235152d6826, type: 3}
 --- !u!1 &683118301
 GameObject:
   m_ObjectHideFlags: 0
@@ -8913,8 +8912,8 @@ GameObject:
   - component: {fileID: 682157588173356222}
   - component: {fileID: 1893962154}
   - component: {fileID: 6987223703756118519}
-  - component: {fileID: 6987223703756118517}
   - component: {fileID: 6987223703756118518}
+  - component: {fileID: 6987223703756118520}
   m_Layer: 7
   m_Name: WatchGlass Priliminary Test
   m_TagString: Untagged
@@ -14068,23 +14067,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652707283648}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6987223703756118517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4125269374901538579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f90475c9246d5a4894f2e3f69e4ee9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _entries:
-  - saltType: 1
-    stringId: cuso4priliminery
-    targets:
-    - {fileID: 7209735288894061331}
 --- !u!114 &6987223703756118518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14092,7 +14074,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125269374901538579}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b23aa410b626864c8414ce5b15c9edc, type: 3}
   m_Name: 
@@ -14122,7 +14104,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8daff67610ed6a74fa24e4aab4febb09, type: 2}
   _session: {fileID: 11400000, guid: f568749d4aecdb144bad878088464b58, type: 2}
   _draggableRegistry: {fileID: 683118302}
-  _clickableRegistry: {fileID: 0}
+  _clickableRegistry: {fileID: 683118304}
+--- !u!114 &6987223703756118520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125269374901538579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6b282ac99e138848b5d2326edc41fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entries:
+  - saltType: 1
+    stringId: CuSO
+    targets:
+    - {fileID: 7209735288894061331}
 --- !u!4 &6989867284337045824
 Transform:
   m_ObjectHideFlags: 0
@@ -14692,7 +14691,6 @@ GameObject:
   - component: {fileID: 819813013934598092}
   - component: {fileID: 7317804428016706693}
   - component: {fileID: 7317804428016706695}
-  - component: {fileID: 7317804428016706696}
   - component: {fileID: 7317804428016706697}
   m_Layer: 8
   m_Name: "Copper Sulphate (CuSO\u2084)_P"
@@ -14736,24 +14734,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saltType: 1
   stringId: CuSO
+  _zone: {fileID: 6987223703756118519}
   _session: {fileID: 11400000, guid: f568749d4aecdb144bad878088464b58, type: 2}
---- !u!114 &7317804428016706696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7317804428016706691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6b282ac99e138848b5d2326edc41fae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _entries:
-  - saltType: 1
-    stringId: CuSO
-    targets:
-    - {fileID: 7209735288894061331}
+  _isInteractable: 1
 --- !u!114 &7317804428016706697
 MonoBehaviour:
   m_ObjectHideFlags: 0

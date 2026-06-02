@@ -33,16 +33,17 @@ namespace SaltAnalysis.Interaction
         public bool IsFlagged(InteractionStep step)
         {
             if (!step.stepEffects.HasFlag(StepEffects.Animation)) return false;
-            if (Draggable.CurrentlyDragged == null) return false;
-            return _map.ContainsKey((Draggable.CurrentlyDragged.saltType, Draggable.CurrentlyDragged.stringId));
+            if (Clickable.CurrentlyClicked == null) return false;
+            return _map.ContainsKey((Clickable.CurrentlyClicked.saltType, Clickable.CurrentlyClicked.stringId));
         }
 
         public void Execute(InteractionStep step, System.Action onComplete)
         {
+            Debug.Log("Activation");
             if (!IsFlagged(step)) return;
             if (string.IsNullOrEmpty(step.animationClip)) { onComplete?.Invoke(); return; }
 
-            var key = (Draggable.CurrentlyDragged.saltType, Draggable.CurrentlyDragged.stringId);
+            var key = (Clickable.CurrentlyClicked.saltType, Clickable.CurrentlyClicked.stringId);
             if (!_map.TryGetValue(key, out Animator animator)) { onComplete?.Invoke(); return; }
 
             _onComplete = onComplete;

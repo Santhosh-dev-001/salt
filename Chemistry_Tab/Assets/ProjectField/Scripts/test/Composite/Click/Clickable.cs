@@ -10,11 +10,14 @@ namespace SaltAnalysis.Interaction
         [SerializeField] public SaltType saltType;
         [SerializeField] public string   stringId;
 
+       public ExperimentZone _zone;
+
         [Header("References")]
         [SerializeField] SessionManager _session;
 
-        bool _isInteractable = true;
+       [SerializeField] bool _isInteractable = true;
 
+        public static Clickable CurrentlyClicked;
         public bool IsInteractable => _isInteractable;
 
         public void SetInteractable(bool state)
@@ -25,6 +28,8 @@ namespace SaltAnalysis.Interaction
         // called by ClickInputController when this GO is clicked
         public void OnClicked(ExperimentZone zone)
         {
+            CurrentlyClicked = this;
+         //   Debug.Log("Clicked");
             if (!_isInteractable) return;
             zone.TryClick(this);
         }

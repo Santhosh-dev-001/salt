@@ -157,14 +157,17 @@ namespace SaltAnalysis.Interaction
             {
                 _currentSaltData = match;
                 _currentStepIndex = 0;
+               // Debug.Log(_currentSaltData);
                 SetupStep();
             }
 
             InteractionStep step = _currentSaltData.GetStep(_currentStepIndex);
             if (step == null) return false;
-
+           // Debug.Log(step);
+           // Debug.Log(step.interactionType.ToString());
             if (step.interactionType != InteractionType.Click)
             {
+                
                 Debug.Log("[ExperimentZone] Current step is not a click step.");
                 return false;
             }
@@ -176,10 +179,15 @@ namespace SaltAnalysis.Interaction
         void FireClickEffects(InteractionStep step)
         {
             var effects = GetComponents<SaltAnalysis.Interface.IClickEffect>();
-
+           // Debug.Log(effects.Length);
             int total = 0;
             foreach (var effect in effects)
+            {
+              //  Debug.Log("Effect" + effect.GetType().Name);
+              //  Debug.Log("IsFlagged" + effect.IsFlagged(step));
                 if (effect.IsFlagged(step)) total++;
+            }
+                
 
             if (total == 0) { OnStepComplete(); return; }
 
