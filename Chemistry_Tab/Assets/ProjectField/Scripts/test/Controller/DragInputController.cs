@@ -101,13 +101,17 @@ namespace SaltAnalysis.Interaction
                 ExperimentZone zone = hit.collider.GetComponent<ExperimentZone>();
                 if (zone != null)
                 {
+                    Debug.Log("TryDrop enterd");
                     // zone validates everything — salt type, string id, step
                     bool accepted = zone.TryDrop(_current);
+
+                    Debug.Log("calling drop zone");
                     if (accepted)
                     {
                         droppedOnZone = true;
                         _current.Attach(hit.transform);
                     }
+                    Debug.Log(accepted);
                 }
             }
 

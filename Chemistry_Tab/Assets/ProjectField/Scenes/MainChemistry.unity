@@ -294,10 +294,10 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.395
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -448,6 +448,7 @@ MonoBehaviour:
   _clickableLayer:
     serializedVersion: 2
     m_Bits: 256
+  _session: {fileID: 11400000, guid: f568749d4aecdb144bad878088464b58, type: 2}
   _pressAction: {fileID: -964591266116185294, guid: c4a7ca8e9e7c4c54c8d8b235152d6826, type: 3}
 --- !u!1 &683118301
 GameObject:
@@ -510,6 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entries:
   - {fileID: 7317804428016706697}
+  - {fileID: 2237524486958304788}
 --- !u!1 &773985548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,7 +1248,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2237524486958304787}
-  m_Layer: 0
+  - component: {fileID: 2237524486958304789}
+  - component: {fileID: 2237524486958304788}
+  - component: {fileID: 2237524486958304791}
+  - component: {fileID: 2237524486958304793}
+  m_Layer: 8
   m_Name: Test Tube_PE_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5256,7 +5262,74 @@ Transform:
   m_Children:
   - {fileID: 8064982410229028144}
   m_Father: {fileID: 6509015167455528825}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.000050375467}
+  m_LocalEulerAnglesHint: {x: -0.0021052957, y: 0.00031903136, z: 0.000070112}
+--- !u!114 &2237524486958304788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253140993999780992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95f0fcb1ef61274a981550e3fe8e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stepIndex: 02000000
+--- !u!114 &2237524486958304789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253140993999780992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1501b23f0cfd1340b8333b6f32d30f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saltType: 1
+  stringId: testtube
+  _zone: {fileID: 6987223703756118519}
+  _session: {fileID: 11400000, guid: f568749d4aecdb144bad878088464b58, type: 2}
+  _isInteractable: 1
+--- !u!65 &2237524486958304791
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253140993999780992}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.00034215485, y: 0.000342648, z: 0.001950947}
+  m_Center: {x: -0.0000014861301, y: -0.0000010361709, z: 0.0009725031}
+--- !u!114 &2237524486958304793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253140993999780992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b23aa410b626864c8414ce5b15c9edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entries:
+  - saltType: 1
+    stringId: Spatula
+    animator: {fileID: 6737455918390868276}
 --- !u!1 &2269045449336010160
 GameObject:
   m_ObjectHideFlags: 0
@@ -8914,6 +8987,7 @@ GameObject:
   - component: {fileID: 6987223703756118519}
   - component: {fileID: 6987223703756118518}
   - component: {fileID: 6987223703756118520}
+  - component: {fileID: 6987223703756118521}
   m_Layer: 7
   m_Name: WatchGlass Priliminary Test
   m_TagString: Untagged
@@ -9717,7 +9791,9 @@ GameObject:
   - component: {fileID: 8064982410229028144}
   - component: {fileID: 8957953505781271109}
   - component: {fileID: 4749866420369861777}
-  m_Layer: 0
+  - component: {fileID: 8957953505781271111}
+  - component: {fileID: 8957953505781271110}
+  m_Layer: 7
   m_Name: TestTube_M.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11009,6 +11085,7 @@ MonoBehaviour:
   returnDuration: 0.5
   disableColliderOnPickup: 1
   enableColliderOnDrop: 1
+  _isInteractable: 1
 --- !u!1 &5265303479890413572
 GameObject:
   m_ObjectHideFlags: 0
@@ -11125,6 +11202,7 @@ MonoBehaviour:
   returnDuration: 0.5
   disableColliderOnPickup: 1
   enableColliderOnDrop: 1
+  _isInteractable: 1
 --- !u!33 &5316133895373027025
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -11336,6 +11414,7 @@ MonoBehaviour:
   returnDuration: 0.5
   disableColliderOnPickup: 1
   enableColliderOnDrop: 1
+  _isInteractable: 1
 --- !u!4 &5416100771351567847
 Transform:
   m_ObjectHideFlags: 0
@@ -11985,6 +12064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6509015167455528825}
   - component: {fileID: 6509015167455528826}
+  - component: {fileID: 6509015167455528827}
   m_Layer: 0
   m_Name: TestTube_PE
   m_TagString: Untagged
@@ -12241,6 +12321,7 @@ MonoBehaviour:
   returnDuration: 0.5
   disableColliderOnPickup: 1
   enableColliderOnDrop: 1
+  _isInteractable: 1
 --- !u!23 &5949763375346393935
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13269,7 +13350,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5845525404410011075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 42d283d8511e01a499acecf9863e7814, type: 2}
   m_CullingMode: 0
@@ -13283,6 +13364,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6509015167455528827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845525404410011075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4db2be933bd1f148836920dd3907dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _targetClick: {fileID: 6987223703756118521}
 --- !u!4 &6511196525909885977
 Transform:
   m_ObjectHideFlags: 0
@@ -13618,6 +13713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6254251775847179145}
   - component: {fileID: 6737455918390868276}
+  - component: {fileID: 6737455918390868277}
   m_Layer: 0
   m_Name: Saptula_PE
   m_TagString: Untagged
@@ -13647,6 +13743,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6737455918390868277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6737455918390868275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4db2be933bd1f148836920dd3907dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 6987223703756118518}
+  _targetClick: {fileID: 0}
 --- !u!23 &6764673729559016143
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14122,6 +14232,22 @@ MonoBehaviour:
     stringId: CuSO
     targets:
     - {fileID: 7209735288894061331}
+--- !u!114 &6987223703756118521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125269374901538579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8d333122dad70409388d2f07acd844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entries:
+  - saltType: 1
+    stringId: testtube
+    animator: {fileID: 6509015167455528826}
 --- !u!4 &6989867284337045824
 Transform:
   m_ObjectHideFlags: 0
@@ -14749,7 +14875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95f0fcb1ef61274a981550e3fe8e282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stepIndex: 0
+  _stepIndex: 00000000
 --- !u!23 &7320768454646464199
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16159,7 +16285,7 @@ Transform:
   m_Children:
   - {fileID: 5868433272328826883}
   m_Father: {fileID: 6254251775847179145}
-  m_LocalEulerAnglesHint: {x: 34.00754, y: -17.149853, z: -39.130245}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.0000014345404}
 --- !u!114 &8325233500886839316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16184,6 +16310,7 @@ MonoBehaviour:
   returnDuration: 0.5
   disableColliderOnPickup: 1
   enableColliderOnDrop: 1
+  _isInteractable: 1
 --- !u!65 &8325233500886839317
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16217,7 +16344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7fc877eb8faf9d4dac3110484b121fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stepIndex: 1
+  _stepIndex: 0100000003000000
 --- !u!1 &8339668851380779945
 GameObject:
   m_ObjectHideFlags: 0
@@ -17318,6 +17445,43 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4531413017455038850}
   m_Mesh: {fileID: -3774276830900598630, guid: 7e156a4fd43dba343900de16526f9f48, type: 3}
+--- !u!65 &8957953505781271110
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531413017455038850}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.032472648, y: 0.18792945, z: 0.034822997}
+  m_Center: {x: 0.0002907664, y: 0.09909646, z: 0.00005881599}
+--- !u!114 &8957953505781271111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531413017455038850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b23aa410b626864c8414ce5b15c9edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entries:
+  - saltType: 1
+    stringId: Spatula
+    animator: {fileID: 6737455918390868276}
 --- !u!33 &8969974244075106638
 MeshFilter:
   m_ObjectHideFlags: 0

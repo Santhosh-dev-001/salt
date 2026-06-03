@@ -12,7 +12,8 @@ namespace SaltAnalysis.Interaction
             foreach (var e in _entries)
             {
                 if (e == null || e.Draggable == null) continue;
-                e.Draggable.SetInteractable(e.StepIndex == stepIndex);
+                bool match = e.StepIndex.Contains(stepIndex);
+                e.Draggable.SetInteractable(match);
             }
         }
 

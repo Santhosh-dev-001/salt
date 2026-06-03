@@ -9,9 +9,9 @@ namespace SaltAnalysis.Interaction
 {
     public class ClickableStepIndex : MonoBehaviour
     {
-        [SerializeField] int _stepIndex;
+        [SerializeField] int[] _stepIndex;
 
-        public int       StepIndex  => _stepIndex;
+        public int[] StepIndex  => _stepIndex;
         public Clickable Clickable  { get; private set; }
 
         void Awake()

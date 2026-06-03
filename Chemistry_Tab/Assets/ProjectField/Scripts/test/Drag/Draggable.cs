@@ -44,7 +44,7 @@ namespace SaltAnalysis.Interaction
         Vector3 _dragStartPos;
         Quaternion _dragStartRot;
         bool _isDragging;
-        bool _isInteractable = true;
+       [SerializeField] bool _isInteractable = true;
 
         void Awake()
         {

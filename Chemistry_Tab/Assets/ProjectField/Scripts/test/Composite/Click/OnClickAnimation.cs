@@ -39,7 +39,7 @@ namespace SaltAnalysis.Interaction
 
         public void Execute(InteractionStep step, System.Action onComplete)
         {
-            Debug.Log("Activation");
+          
             if (!IsFlagged(step)) return;
             if (string.IsNullOrEmpty(step.animationClip)) { onComplete?.Invoke(); return; }
 

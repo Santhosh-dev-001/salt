@@ -9,9 +9,9 @@ namespace SaltAnalysis.Interaction
 {
     public class DraggableStepIndex : MonoBehaviour
     {
-        [SerializeField] int _stepIndex;
+        [SerializeField] List<int> _stepIndex;
 
-        public int StepIndex => _stepIndex;
+        public List<int> StepIndex => _stepIndex;
         public Draggable Draggable { get; private set; }
 
         void Awake()

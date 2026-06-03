@@ -12,7 +12,7 @@ namespace SaltAnalysis.Data
         [SerializeField] ExperimentType _currentExperiment;
 
         public SaltType CurrentSalt => _currentSalt;
-        public int CurrentStep => _currentStep;
+        public int CurrentStep {  get { return _currentStep; } set { _currentStep = value; } }
         public ExperimentType CurrentExperiment => _currentExperiment;
 
         System.Action _onReset;
@@ -28,7 +28,7 @@ namespace SaltAnalysis.Data
         {
             if (_currentSalt == newSalt) return false;
             _currentSalt = newSalt;
-            _currentStep = 0;
+            
             _currentExperiment = (ExperimentType)_currentStep;
             _onReset?.Invoke();
             return true;

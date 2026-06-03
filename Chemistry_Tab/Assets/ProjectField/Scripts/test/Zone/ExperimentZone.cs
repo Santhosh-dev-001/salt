@@ -24,51 +24,56 @@ namespace SaltAnalysis.Interaction
         // ── Runtime ──────────────────────────────────────────────────────────
 
         SaltData _currentSaltData;
-        int _currentStepIndex;
 
         // ── Drop entry point ─────────────────────────────────────────────────
 
         public bool TryDrop(Draggable draggable)
         {
+            Debug.Log("TryDrop Enter");
+
             if (!_session.IsStepAllowed(_experimentType))
             {
-                Debug.Log($"[ExperimentZone] {_experimentType} not allowed yet.");
+                Debug.Log("FAILED: Step not allowed");
                 return false;
             }
 
             SaltData match = FindSaltData(draggable.saltType);
+
             if (match == null)
             {
-                Debug.Log($"[ExperimentZone] No SaltData for {draggable.saltType}");
+                Debug.Log("FAILED: No SaltData");
                 return false;
             }
 
-            if (_currentSaltData != match)
-            {
-                _currentSaltData = match;
-                _currentStepIndex = 0;
-                SetupStep();
-            }
+            Debug.Log("CurrentInteractionStep = " +
+                      _session.CurrentStep);
 
-            InteractionStep step = _currentSaltData.GetStep(_currentStepIndex);
+            InteractionStep step =
+                _currentSaltData.GetStep(_session.CurrentStep);
+
             if (step == null)
             {
-                Debug.Log($"[ExperimentZone] No step at index {_currentStepIndex}");
+                Debug.Log("FAILED: Step is NULL");
                 return false;
             }
 
+            Debug.Log("Interaction Type = " + step.interactionType);
+
             FireEffects(step);
+
             return true;
+
         }
 
         // ── Step complete ─────────────────────────────────────────────────────
 
         public void OnStepComplete()
         {
-            _currentStepIndex++;
-
-            if (_currentStepIndex >= _currentSaltData.StepCount)
+            
+            _session.CurrentStep++;
+            if (_session.CurrentStep >= _currentSaltData.StepCount)
             {
+              
                 Debug.Log($"[ExperimentZone] All steps complete for {_currentSaltData.saltType}");
                 _draggableRegistry.SetAllInteractable(false);
                 _session.IncrementStep();
@@ -89,20 +94,21 @@ namespace SaltAnalysis.Interaction
 
         void SetupStep()
         {
+            Debug.Log("SetupStep" + _session.CurrentStep);
             if (_currentSaltData == null) return;
 
-            InteractionStep step = _currentSaltData.GetStep(_currentStepIndex);
+            InteractionStep step = _currentSaltData.GetStep(_session.CurrentStep);
             if (step == null) return;
 
             if (step.interactionType == InteractionType.Drag)
             {
                 _clickableRegistry?.SetAllInteractable(false);
-                _draggableRegistry.SetupForStep(_currentStepIndex);
+                _draggableRegistry.SetupForStep(_session.CurrentStep);
             }
             else if (step.interactionType == InteractionType.Click)
             {
                 _draggableRegistry.SetAllInteractable(false);
-                _clickableRegistry?.SetupForStep(_currentStepIndex);
+                _clickableRegistry?.SetupForStep(_session.CurrentStep);
             }
         }
 
@@ -120,13 +126,18 @@ namespace SaltAnalysis.Interaction
                 OnStepComplete();
                 return;
             }
-
+         
             int completed = 0;
             void OnEffectDone()
             {
+              
                 completed++;
                 if (completed >= total)
+                {
+                  
                     OnStepComplete();
+                }
+                    
             }
 
             foreach (var effect in effects)
@@ -135,13 +146,13 @@ namespace SaltAnalysis.Interaction
 
         // ── Click entry point ─────────────────────────────────────────────────
 
-
+          
         public bool IsStepAllowed(Clickable clickable)
         {
             if (!_session.IsStepAllowed(_experimentType)) return false;
             SaltData match = FindSaltData(clickable.saltType);
             if (match == null) return false;
-            InteractionStep step = match.GetStep(_currentStepIndex);
+            InteractionStep step = match.GetStep(_session.CurrentStep);
             if (step == null) return false;
             return step.interactionType == InteractionType.Click;
         }
@@ -156,12 +167,12 @@ namespace SaltAnalysis.Interaction
             if (_currentSaltData != match)
             {
                 _currentSaltData = match;
-                _currentStepIndex = 0;
+                _session.CurrentStep = 0;
                // Debug.Log(_currentSaltData);
                 SetupStep();
             }
 
-            InteractionStep step = _currentSaltData.GetStep(_currentStepIndex);
+            InteractionStep step = _currentSaltData.GetStep(_session.CurrentStep);
             if (step == null) return false;
            // Debug.Log(step);
            // Debug.Log(step.interactionType.ToString());

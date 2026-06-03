@@ -5,6 +5,8 @@ using UnityEngine;
 public class AnimationEventBridge : MonoBehaviour
 {
     [SerializeField] OnDropAnimation _target;
-
+    [SerializeField] OnClickAnimation _targetClick;
     public void OnAnimationComplete() => _target.OnAnimationComplete();
+
+    public void OnClickAnimationCompleted() => _targetClick.OnAnimationComplete();
 }
